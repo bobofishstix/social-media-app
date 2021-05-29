@@ -18,7 +18,7 @@ export default function CommentInput({comments, id}) {
             db.collection('posts').doc(id).update({
                 comments: commentArray,
             }).then(function(){
-                setComment('');
+                setCommentArray('');
                 console.log('comment added');
             }).catch(function (error) {
                 console.log(`Error ${error}`);
