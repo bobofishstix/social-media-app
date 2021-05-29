@@ -7,21 +7,17 @@ export default function CommentInput({comments, id}) {
 
     const [user, setUser] = useContext(UserContext).user;
     const [comment, setComment] = useState ('');
-    const [commentArray, setCommentArray] = useState(comments ? comments : []);
+    const [commentMap, setCommentMap] = useState(comments ? comments : []);
 
     const addComment = () => {
-        if(comment != '' && user != null){
+        if(comment != '' && user !== null){
             // add comment to post info
-            commentArray.push({
-                comment:comment, username:user.email.replace('@gmail.com', '').toLowerCase(),
+            commentMap.push({
+                comment:comment, 
+                username:user.email.replace('@gmail.com', '').toLowerCase(),
             });
             db.collection('posts').doc(id).update({
-                comments: commentArray,
-            }).then(function(){
-                setComment('');
-                console.log('comment added');
-            }).catch(function (error) {
-                console.log(`Error ${error}`);
+                comments: commentMap,
             });
         }
     };
