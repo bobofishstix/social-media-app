@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import './style.css';
 import { SignInBtn } from '../../components';
+import { UserContext } from '../../contexts/user';
 
 export default function Navbar() {
-    return ( <div className='navbar'>
-        <p>ReactSocial</p>
-        <SignInBtn />
-    </div>
+    const [user, setUser] = useContext(UserContext).user;
+    return ( 
+        <div className='navbar'>
+            <p>ReactSocial</p>
+
+            {user ? <img className='navbar-img' src={user.photoURL}></img> : <SignInBtn />}
+        </div>
     )
 }
