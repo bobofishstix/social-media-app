@@ -39,6 +39,11 @@ export default function CreatePost() {
                         userURL: user.photoURL
                         })
                     });
+
+                    setCaption('');
+                    setImage(null);
+
+                    document.getElementById('image-preview').style.display = 'none';
                 }
             );
         }
