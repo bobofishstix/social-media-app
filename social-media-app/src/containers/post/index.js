@@ -5,6 +5,7 @@ import { db, storage } from '../../firebase';
 import './style.css';
 
 export default function Post ({userURL, username, id, photoURL, caption, comments}) {
+
     const deletePost = () => {
         // delete image from firebase storage
 
@@ -45,7 +46,7 @@ export default function Post ({userURL, username, id, photoURL, caption, comment
                     {caption}
                 </p>
             </div>
-            {comments ? (comments.map((comment) => (<Comment username={comment.username} caption={comment.comment} />)) ):( <></>)}
+            {comments ? comments.map((comment) => <Comment username={comment.username} caption={comment.caption} />) : <></>}
           <CommentInput comments={comments} id={id}/>
         </div>
     );
