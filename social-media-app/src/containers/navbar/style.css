@@ -8,3 +8,17 @@
   height: 35px;
   border-radius: 8px;
 }
+.navbar-left {
+  display: flex;
+  flex-direction: row;
+}
+.navbar-logo {
+  display: flex;
+  height: 35px;
+  width: auto;
+}
+.navbar-text {
+  align-self: center;
+  color: red;
+  font-weight: 700;
+}
