@@ -4,6 +4,7 @@ import { signInWithGoogle} from '../../services/auth.js';
 import { UserContext } from '../../contexts/user';
 
 export default function SignInBtn() {
+    // eslint-disable-next-line no-unused-vars
     const [user, setUser] = useContext(UserContext).user;
 
     const signInBtnClick = async () => {
